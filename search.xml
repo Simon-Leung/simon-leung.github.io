@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>hello world</title>
+    <url>/2022/05/26/hello-world/</url>
+    <content><![CDATA[<html><head></head><body><p><img src="/2022/05/26/hello-world/alice.jpg" alt="Alice"></p>
+</body></html>]]></content>
+      <categories>
+        <category>LifeStyle</category>
+      </categories>
+      <tags>
+        <tag>LifeStyle</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vscode调试ros程序</title>
+    <url>/2022/05/28/vscode%E8%B0%83%E8%AF%95ros%E7%A8%8B%E5%BA%8F/</url>
+    <content><![CDATA[<html><head></head><body><h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><h3 id="相关扩展"><a href="#相关扩展" class="headerlink" title="相关扩展"></a>相关扩展</h3><ul>
+<li>C/C++</li>
+<li>Python</li>
+<li>CMake</li>
+<li>CMake Tools</li>
+<li>vscode-icons：给不同类型文件设置图标</li>
+<li>ROS</li>
+</ul>
+<h3 id="vscode-ros"><a href="#vscode-ros" class="headerlink" title="vscode-ros"></a>vscode-ros</h3><p>vscode-ros是在vscode上用于辅助ros开发的插件，因roboware不再更新所以切换到vscode平台。</p>
+<ul>
+<li>不会修改工作空间文件目录结构（roboware会改变目录结构，手动创建的无法导入roboware，roboware创建的也无法通过catkin_make手动编译）</li>
+<li>可以断点调试（测试存在局限性）</li>
+<li>支持ros2.0</li>
+<li>提供ros代码对齐（Ctrl+Shift+I选择ros）</li>
+<li>需要手动修改CMakeList.txt</li>
+</ul>
+<h3 id="官方说明"><a href="#官方说明" class="headerlink" title="官方说明"></a>官方说明</h3><blockquote>
+<h3 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a>Getting Started</h3><p>The extension will automatically start when you open a catkin workspace. The build system (e.g. catkin_make or catkin build) will automatically be confirmed from the hidden files associated with each system. The ROS distro will automatically be confirmed from the parent environment, or you will be prompted to select a ROS distro if this can’t be done automatically.</p>
+<blockquote>
+<p>You must build the catkin workspace at least once before the extension will recognise it.</p>
+</blockquote>
+<p>To start ROS core, use the “ROS: Start Core” command. The “ROS Core” indicator in the bottom left will show if the core is currently running, and you can click on this to view parameters etc.</p>
+<p>The first time you open the workspace the extension will automatically create build and test tasks and update the C++ and Python paths. You can re-run this process later using the appropriate commands.</p>
+<h3 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h3><ul>
+<li>Automatic ROS environment configuration.</li>
+<li>Allows starting, stopping and viewing the ROS core status.</li>
+<li>Automatically discover catkin_make or catkin build build tasks.</li>
+<li>Create catkin packages using catkin_create_pkg script or catkin create pkg.</li>
+<li>Run rosrun or roslaunch (breakpoints currently not supported).</li>
+<li>Syntax highlighting for .msg, .urdf and other ROS files.</li>
+<li>Automatically add the ROS C++ include and Python import paths.</li>
+<li>Format C++ using the ROS clang-format style.</li>
+<li>Preview URDF and Xacro files.</li>
+<li>Debug a single ROS node (C++ or Python) by attaching to the process.</li>
+<li>Debug ROS nodes (C++ or Python) launched from a .launch file.</li>
+</ul>
+</blockquote>
+<h2 id="二、命令"><a href="#二、命令" class="headerlink" title="二、命令"></a>二、命令</h2><p>Ctrl+p打开指令面板，&gt;ros:调用</p>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Command</th>
+<th align="center">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Create Catkin Package</td>
+<td align="left">ros.createCatkinPackage</td>
+<td align="center">Create a catkin package. You can right click on a folder in the explorer to create it in a specific location.</td>
+</tr>
+<tr>
+<td align="left">Create Terminal</td>
+<td align="left">ros.createTerminal</td>
+<td align="center">Create a terminal with ROS sourced.</td>
+</tr>
+<tr>
+<td align="left">Show Core Status</td>
+<td align="left">ros.showCoreStatus</td>
+<td align="center">Open a detail view showing ROS core runtime status.</td>
+</tr>
+<tr>
+<td align="left">Start Core</td>
+<td align="left">ros.startCore</td>
+<td align="center">Spawn a ROS core</td>
+</tr>
+<tr>
+<td align="left">Stop Core</td>
+<td align="left">ros.stopCore</td>
+<td align="center">Terminate the ROS core</td>
+</tr>
+<tr>
+<td align="left">Update C++ Properties</td>
+<td align="left">ros.updateCppProperties</td>
+<td align="center">Update the C++ include path to include ROS.</td>
+</tr>
+<tr>
+<td align="left">Update Python Path</td>
+<td align="left">ros.updatePythonPath</td>
+<td align="center">Update the Python path to include ROS.</td>
+</tr>
+<tr>
+<td align="left">Preview URDF</td>
+<td align="left">ros.previewUrdf</td>
+<td align="center">Preview URDF and Xacro files. Updates after changes are saved.</td>
+</tr>
+</tbody></table>
+<h2 id="三、使用"><a href="#三、使用" class="headerlink" title="三、使用"></a>三、使用</h2><h3 id="3-1-导入工作空间"><a href="#3-1-导入工作空间" class="headerlink" title="3.1 导入工作空间"></a>3.1 导入工作空间</h3><ol>
+<li>创建工作空间<br>通过makdir -p catkin_ws/src创建工作空间并通过catkin_make编译生成。</li>
+<li>加载工作空间<br>必须先生成编译工作空间。</li>
+</ol>
+<h3 id="3-2-环境配置"><a href="#3-2-环境配置" class="headerlink" title="3.2 环境配置"></a>3.2 环境配置</h3><ul>
+<li>代码提示</li>
+</ul>
+<ol>
+<li>编译输出信息文件<br><code>catkin_make -DCMAKE_EXPORT_COMPILE_COMMANDS=Yes</code></li>
+<li>添加信息文件到c_cpp_properties.json文件中（最后5句）<figure class="highlight bash hljs"><table><tbody><tr><td class="code"><pre><span class="line">{</span><br><span class="line">  <span class="hljs-string">"configurations"</span>: [</span><br><span class="line">    {</span><br><span class="line">      <span class="hljs-string">"browse"</span>: {</span><br><span class="line">        <span class="hljs-string">"databaseFilename"</span>: <span class="hljs-string">"<span class="hljs-variable">${workspaceFolder}</span>/.vscode/browse.vc.db"</span>,</span><br><span class="line">        <span class="hljs-string">"limitSymbolsToIncludedHeaders"</span>: <span class="hljs-literal">false</span></span><br><span class="line">      },</span><br><span class="line">      <span class="hljs-string">"includePath"</span>: [</span><br><span class="line">        <span class="hljs-string">"/opt/ros/kinetic/include/**"</span>,</span><br><span class="line">        <span class="hljs-string">"/home/ros/catkin_ws/src/acr_sdk/include/**"</span>,</span><br><span class="line">        <span class="hljs-string">"/usr/include/**"</span></span><br><span class="line">      ],</span><br><span class="line">      <span class="hljs-string">"name"</span>: <span class="hljs-string">"ROS"</span>,</span><br><span class="line">      <span class="hljs-string">"intelliSenseMode"</span>: <span class="hljs-string">"gcc-x64"</span>,</span><br><span class="line">      <span class="hljs-string">"compilerPath"</span>: <span class="hljs-string">"/usr/bin/gcc"</span>,</span><br><span class="line">      <span class="hljs-string">"cStandard"</span>: <span class="hljs-string">"gnu11"</span>,</span><br><span class="line">      <span class="hljs-string">"cppStandard"</span>: <span class="hljs-string">"c++14"</span>,</span><br><span class="line">      <span class="hljs-string">"compileCommands"</span>: <span class="hljs-string">"<span class="hljs-variable">${workspaceFolder}</span>/build/compile_commands.json"</span></span><br><span class="line">    }</span><br><span class="line">  ],</span><br><span class="line">  <span class="hljs-string">"version"</span>: 4</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+</ol>
+<p><strong>注意</strong>：若无代码提示显示，使用Ctrl+space</p>
+<ul>
+<li>编译</li>
+</ul>
+<ol>
+<li>手动编译</li>
+<li>创建task  </li>
+<li>Ctrl+Shift+P键入tasks: Configure Task<figure class="highlight awk hljs"><table><tbody><tr><td class="code"><pre><span class="line">{</span><br><span class="line">  <span class="hljs-string">"version"</span>: <span class="hljs-string">"2.0.0"</span>,</span><br><span class="line">  <span class="hljs-string">"tasks"</span>: [</span><br><span class="line">    {</span><br><span class="line">      <span class="hljs-string">"type"</span>: <span class="hljs-string">"catkin_make"</span>,<span class="hljs-regexp">//</span>可以选择shell或者process,如果是shell代码是在shell里面运行一个命令，如果是process代表作为一个进程来运行</span><br><span class="line">      <span class="hljs-string">"args"</span>: [ <span class="hljs-regexp">//</span>如果需要在命令后面加一些后缀，可以写在这里，比如-DCATKIN_WHITELIST_PACKAGES=“pac1;pac2”</span><br><span class="line">        <span class="hljs-string">"--directory"</span>,</span><br><span class="line">        <span class="hljs-string">"/home/ros/catkin_ws"</span>,</span><br><span class="line">        <span class="hljs-string">"-DCMAKE_BUILD_TYPE=RelWithDebInfo"</span></span><br><span class="line">      ],</span><br><span class="line">      <span class="hljs-string">"problemMatcher"</span>: [</span><br><span class="line">        <span class="hljs-string">"$catkin-gcc"</span></span><br><span class="line">      ],</span><br><span class="line">      <span class="hljs-string">"group"</span>: <span class="hljs-string">"build"</span>,</span><br><span class="line">      <span class="hljs-string">"label"</span>: <span class="hljs-string">"catkin_make: build"</span> <span class="hljs-regexp">//</span>代表提示的描述性信息</span><br><span class="line">    }</span><br><span class="line">  ]</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+<li>选择catkin_make:build</li>
+<li>Ctrl+Shift+B编译</li>
+</ol>
+<h3 id="3-3-调试"><a href="#3-3-调试" class="headerlink" title="3.3 调试"></a>3.3 调试</h3><h4 id="3-3-1-单程序调试"><a href="#3-3-1-单程序调试" class="headerlink" title="3.3.1 单程序调试"></a>3.3.1 单程序调试</h4><p>调试使用attach模式</p>
+<blockquote>
+<p>Attach toprocess：用于和进程绑定</p>
+</blockquote>
+<ol>
+<li><p>新建configuration设置</p>
+</li>
+<li><p>在.vscode的launch.josn添加ROS: Attach</p>
+<figure class="highlight json hljs"><table><tbody><tr><td class="code"><pre><span class="line"><span class="hljs-punctuation">{</span></span><br><span class="line">    <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"ROS: Attach"</span><span class="hljs-punctuation">,</span></span><br><span class="line">    <span class="hljs-attr">"request"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"attach"</span><span class="hljs-punctuation">,</span></span><br><span class="line">    <span class="hljs-attr">"type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"ros"</span><span class="hljs-punctuation">,</span></span><br><span class="line">    <span class="hljs-attr">"MIDebuggerPath"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"/usr/bin/gdb"</span></span><br><span class="line"><span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span></span><br></pre></td></tr></tbody></table></figure></li>
+<li><p>编译程序（生成类型必须为RelWithDebInfo）<br><code>SET(CMAKE_BUILD_TYPE "RelWithDebInfo")</code></p>
+</li>
+<li><p>通过&gt;ros::run运行程序（也可以手动运行，需要加载环境）</p>
+</li>
+<li><p>运行ROS:Attach，选择运行程序进入断点调试模式</p>
+</li>
+</ol>
+<ul>
+<li>创建ROS:Attach</li>
+</ul>
+<p><img src="/2022/05/28/vscode%E8%B0%83%E8%AF%95ros%E7%A8%8B%E5%BA%8F/1.gif"></p>
+<ul>
+<li>调试python</li>
+</ul>
+<p><img src="/2022/05/28/vscode%E8%B0%83%E8%AF%95ros%E7%A8%8B%E5%BA%8F/2.gif"></p>
+<p>调试c++</p>
+<p><img src="/2022/05/28/vscode%E8%B0%83%E8%AF%95ros%E7%A8%8B%E5%BA%8F/3.gif"></p>
+<h4 id="3-3-2-多程序调试"><a href="#3-3-2-多程序调试" class="headerlink" title="3.3.2 多程序调试"></a>3.3.2 多程序调试</h4><ol>
+<li><p>创建launch文件，调用调试的节点</p>
+<figure class="highlight abnf hljs"><table><tbody><tr><td class="code"><pre><span class="line">&lt;launch&gt;</span><br><span class="line">    &lt;node pkg <span class="hljs-operator">=</span> <span class="hljs-string">"beginner_tutorials"</span> type <span class="hljs-operator">=</span> <span class="hljs-string">"talker"</span> name<span class="hljs-operator">=</span><span class="hljs-string">"talker_cpp"</span>/&gt;</span><br><span class="line">    &lt;node pkg <span class="hljs-operator">=</span> <span class="hljs-string">"beginner_tutorials"</span> type <span class="hljs-operator">=</span> <span class="hljs-string">"listener"</span> name<span class="hljs-operator">=</span><span class="hljs-string">"listener_cpp"</span>/&gt;</span><br><span class="line">&lt;/launch&gt;</span><br></pre></td></tr></tbody></table></figure></li>
+<li><p>在.vscode的launch.josn添加ROS: Launch，”target”设置为launch文件的绝对路径</p>
+<figure class="highlight json hljs"><table><tbody><tr><td class="code"><pre><span class="line"><span class="hljs-punctuation">{</span></span><br><span class="line">    <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"ROS: Launch talker"</span><span class="hljs-punctuation">,</span></span><br><span class="line">    <span class="hljs-attr">"type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"ros"</span><span class="hljs-punctuation">,</span></span><br><span class="line">    <span class="hljs-attr">"request"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"launch"</span><span class="hljs-punctuation">,</span></span><br><span class="line">    <span class="hljs-attr">"MIDebuggerPath"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"/usr/bin/gdb"</span><span class="hljs-punctuation">,</span></span><br><span class="line">    <span class="hljs-attr">"target"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"/home/ros/catkin_ws/src/talker/launch/acr_node.launch"</span></span><br><span class="line"><span class="hljs-punctuation">}</span></span><br></pre></td></tr></tbody></table></figure></li>
+<li><p>运行ROS:Launch，选择运行程序进入断点调试模式</p>
+</li>
+</ol>
+<ul>
+<li>创建ROS:Launch</li>
+</ul>
+<p>实际测试时需要手动修改路径，不会有选项出现。</p>
+<p><img src="/2022/05/28/vscode%E8%B0%83%E8%AF%95ros%E7%A8%8B%E5%BA%8F/4.gif"></p>
+<ul>
+<li>启动并检查master</li>
+</ul>
+<p><img src="/2022/05/28/vscode%E8%B0%83%E8%AF%95ros%E7%A8%8B%E5%BA%8F/5.gif"></p>
+<ul>
+<li>调试节点</li>
+</ul>
+<p><img src="/2022/05/28/vscode%E8%B0%83%E8%AF%95ros%E7%A8%8B%E5%BA%8F/6.gif"></p>
+</body></html>]]></content>
+      <categories>
+        <category>Technology</category>
+      </categories>
+      <tags>
+        <tag>ROS</tag>
+      </tags>
+  </entry>
+</search>
