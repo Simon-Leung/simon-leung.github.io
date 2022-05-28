@@ -29,6 +29,7 @@ menu:
   生活: /categories/LifeStyle
   音乐: /categories/Music
   技术: /categories/Technology
+  标签: /tags
   关于: /about
 
 # Search plugin settings.
@@ -36,7 +37,7 @@ search:
   type: insight
 
 # Navigation bar toc settings
-toc: false
+toc: true
 
 # Share plugin settings.
 share:

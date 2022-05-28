@@ -6,7 +6,7 @@
 title: Simon
 subtitle: 记录生活与学习
 description: ''
-keywords:
+keywords: SimonLeung
 author: Simon Leung
 language: zh-cn
 timezone: Asia/Shanghai
@@ -57,7 +57,7 @@ prismjs:
   enable: false
   preprocess: true
   line_number: true
-  tab_replace: ''
+  tab_replace: '  '
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
