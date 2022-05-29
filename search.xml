@@ -31,6 +31,8 @@
 <li>提供ros代码对齐（Ctrl+Shift+I选择ros）</li>
 <li>需要手动修改CMakeList.txt</li>
 </ul>
+<span id="more"></span>
+
 <h3 id="官方说明"><a href="#官方说明" class="headerlink" title="官方说明"></a>官方说明</h3><blockquote>
 <h3 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a>Getting Started</h3><p>The extension will automatically start when you open a catkin workspace. The build system (e.g. catkin_make or catkin build) will automatically be confirmed from the hidden files associated with each system. The ROS distro will automatically be confirmed from the parent environment, or you will be prompted to select a ROS distro if this can’t be done automatically.</p>
 <blockquote>
