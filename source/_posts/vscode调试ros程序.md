@@ -24,6 +24,8 @@ vscode-ros是在vscode上用于辅助ros开发的插件，因roboware不再更�
 - 提供ros代码对齐（Ctrl+Shift+I选择ros）
 - 需要手动修改CMakeList.txt
 
+<!-- more -->
+
 ### 官方说明
 
 > ### Getting Started
