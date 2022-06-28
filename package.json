@@ -14,7 +14,7 @@
   "dependencies": {
     "bufferutil": "^4.0.6",
     "canvas": "^2.9.1",
-    "cheerio": "^1.0.0-rc.11",
+    "cheerio": "^1.0.0-rc.12",
     "har-validator": "^5.1.5",
     "hexo": "^6.2.0",
     "hexo-asset-image": "^1.0.0",
