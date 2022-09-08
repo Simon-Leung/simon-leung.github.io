@@ -31,7 +31,7 @@
     "hexo-renderer-stylus": "^2.1.0",
     "hexo-server": "^3.0.0",
     "hexo-theme-landscape": "^0.0.3",
-    "node-sass": "^7.0.1",
+    "node-sass": "^7.0.3",
     "nth-check": "^2.1.1",
     "object-assign": "^4.1.1",
     "request": "^2.88.2",
