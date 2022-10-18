@@ -12,7 +12,7 @@
     "version": "5.4.2"
   },
   "dependencies": {
-    "bufferutil": "^4.0.6",
+    "bufferutil": "^4.0.7",
     "canvas": "^2.9.3",
     "cheerio": "^1.0.0-rc.12",
     "har-validator": "^5.1.5",
